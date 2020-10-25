@@ -7,6 +7,8 @@ function App() {
       <p><input type="checkbox" name="grocery-shopping" />Grocery Shopping</p>
       <p><input type="checkbox" name="yard-work" />Yard Work</p>
       <p><input type="checkbox" name="wash-cars" />Wash Cars</p>
+      <p><input type="checkbox" name="pay-bills" />Pay Bills</p>
+      <p><input type="checkbox" name="clean-pool" />Clean Pool</p>
     </div>
   );
 }
