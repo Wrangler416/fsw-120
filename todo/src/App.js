@@ -1,3 +1,5 @@
+import React from "react";  //According to the Scrimba video we need this here as well, but it worked fine without it.
+
 function App() {
   return (
     <div>
