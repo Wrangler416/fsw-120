@@ -24,7 +24,7 @@ function App() {
             timeToGo={spot.timeToGo}
             bgColor={bgColor}
             dollarSigns={dollarSigns} />
-    })
+    });
 
     return (
         <div style={{display: "flex"}}>
