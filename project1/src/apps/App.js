@@ -5,8 +5,8 @@ import Footer from "../components/Footer";
 
 function App() {
     return (
-        <div style={{width: "100%"}}>
-            <div style={{width: "50%", margin: "0 auto", border: "1px solid lightgrey"}}>
+        <div style={{maxWidth: "500px", margin: "auto"}}>
+            <div>
                 <Header />
                 <BlogList />
                 <Footer />
