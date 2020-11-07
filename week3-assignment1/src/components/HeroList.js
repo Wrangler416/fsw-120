@@ -7,10 +7,8 @@ class HeroList extends React.Component {
         super()
         this.state = {}
     }
-    
-    showCatchPhrase(catchPhrase) {
-        alert(catchPhrase)
-    }
+
+    showCatchPhrase = (catchPhrase) => { alert(catchPhrase) }
 
     render() {
         const superHeros = superHeroData.map(superHero => <SuperHero
