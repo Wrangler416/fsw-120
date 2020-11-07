@@ -1,8 +1,11 @@
 import React from "react"
 
-function SuperHero() {
+function SuperHero(props) {
     return (
-        <div></div>
+        <div>
+            <h3>{props.name}</h3>
+            <img src={props.imageName} alt='' />
+        </div>
     )
 }
 
