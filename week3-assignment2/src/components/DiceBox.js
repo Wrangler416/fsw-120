@@ -56,7 +56,7 @@ class DiceBox extends React.Component {
                     <div style={styles}>{this.state.num5}</div>
                 </div>
                 <div style={{padding: "10px"}}>
-                    <button onClick={this.randomizeNumbers}>Click to Randomize</button>
+                    <button onClick={this.randomizeNumbers}>Roll the Dice</button>
                 </div>
             </div>
         )
