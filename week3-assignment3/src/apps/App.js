@@ -3,7 +3,7 @@ import DJSquares from "../components/DJSquares"
 
 function App() {
   return (
-    <div>
+    <div style={{textAlign: "center"}}>
       <DJSquares />
     </div>
   )

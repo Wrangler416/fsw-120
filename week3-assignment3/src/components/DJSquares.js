@@ -18,7 +18,9 @@ class DJSquares extends React.Component {
             display: "grid",
             gridTemplateColumns: "150px 150px",
             height: "200px",
-            gap: "5px"
+            justifyContent: "center",
+            gap: "5px",
+            padding: "10px"
         }
 
         const squareComponents = this.state.colors.map(function(color, index) {
@@ -34,28 +36,21 @@ class DJSquares extends React.Component {
                         this.state.colors[0] === "white" 
                             ? this.setState({colors: ["black", "black", "black", "black"]})
                             : this.setState({colors: ["white", "white", "white", "white"]})
-
                             const ding = new Audio(dingSound)
                             ding.play()
                     }}>Toggle White/Black</button>
-
                     <button onClick={() => {
                         this.setState({colors: ["purple", "purple", this.state.colors[2], this.state.colors[3]]})
-
                         const bell = new Audio(churchBell)
                         bell.play()
                     }}>Purple Tops</button>
-
                     <button onClick={() => {
                         this.setState({colors: [this.state.colors[0], this.state.colors[1], "blue", this.state.colors[3]]})
-
                         const tone = new Audio(bellTone)
                         tone.play()
                     }}>Bottom Left Blue</button>
-
                     <button onClick={() => {
                         this.setState({colors: [this.state.colors[0], this.state.colors[1], this.state.colors[2], "blue"]})
-
                         const ding = new Audio(dingSound)
                         ding.play()
                     }}>Bottom Right Blue</button>
@@ -63,34 +58,26 @@ class DJSquares extends React.Component {
                 <div>
                     <button onClick={() => {
                         this.setState({colors: ["red", this.state.colors[1], this.state.colors[2], this.state.colors[3]]})
-
                         const tone = new Audio(bellTone)
                         tone.play()
                     }}>Top Left</button>
-
                     <button onClick={() => {
                         this.setState({colors: [this.state.colors[0], "orange", this.state.colors[2], this.state.colors[3]]})
-
                         const ding = new Audio(dingSound)
                         ding.play()
                     }}>Top Right</button>
-
                     <button onClick={() => {
                         this.setState({colors: [this.state.colors[0], this.state.colors[1], "yellow", this.state.colors[3]]})
-
                         const tone = new Audio(bellTone)
                         tone.play()
                     }}>Bottom Left</button>
-
                     <button onClick={() => {
                         this.setState({colors: [this.state.colors[0], this.state.colors[1], this.state.colors[2], "green"]})
-
                         const ding = new Audio(dingSound)
                         ding.play()
                     }}>Bottom Right</button>
                 </div>
-
-                <div>
+                <div style={{padding: "10px"}}>
                     <select id="seasons" onChange={() => {
                         let seasons = document.getElementById('seasons')
                         switch (seasons.value) {
@@ -116,7 +103,6 @@ class DJSquares extends React.Component {
                         <option value="Winter">Winter</option>
                     </select>
                 </div>
-
             </div>
         )
     }

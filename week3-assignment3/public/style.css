@@ -1,0 +1,11 @@
+button {
+    width: 200px;
+    height: 40px;
+    background-color: lightsteelblue;
+    font-weight: bold;
+    border-radius: 10px;
+}
+select {
+    width: 100px;
+    height: 25px;
+}
