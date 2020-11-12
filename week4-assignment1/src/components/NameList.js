@@ -5,8 +5,7 @@ function ListItem(props) {
 }
 
 function NameList(props) {
-    const names = props.names
-    const listItems = names.map((name, index) => {
+    const listItems = props.names.map((name, index) => {
         return <ListItem key={index} value={name} />
     })
     return (
