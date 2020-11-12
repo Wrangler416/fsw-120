@@ -1,16 +1,11 @@
 import React from "react"
 
-class NameList extends React.Component {
-    constructor() {
-        super()
-        this.state = {}
-    }
+function NameList() {
 
-    render() {
-        return (
-            <div></div>
-        )
-    }
+    return (
+        <div></div>
+    )
+
 }
 
 export default NameList
