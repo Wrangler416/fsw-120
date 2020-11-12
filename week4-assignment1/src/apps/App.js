@@ -1,10 +1,11 @@
 import React from "react"
+import NameList from "../components/NameList"
 
 class App extends React.Component {
     constructor() {
         super()
         this.state = {
-            name: "",
+            name: '',
             names: []
         }
         this.handleChange = this.handleChange.bind(this)
@@ -19,30 +20,40 @@ class App extends React.Component {
     }
 
     handleClick(event) {
+        event.preventDefault()
+
         this.setState(prevState => ({
             names: [...prevState.names, this.state.name]
         }))
 
-        event.preventDefault()
+        this.setState({name: ''})
     }
 
     render() {
-        const listItems = this.state.names.map((name, index) => {
-            return <li key={index}>{name}</li>
-        })
 
         return (
-            <form>
-                <h1>{this.state.name}</h1>
-                <input 
-                    type="text" 
-                    value={this.state.name} 
-                    name="name" 
-                    placeholder="Name" 
-                    onChange={this.handleChange} />
-                <button onClick={this.handleClick}>Add</button>
-                <ol>{listItems}</ol>
-            </form>
+
+            <div style={{display: "flex", justifyContent: "center"}}>
+                <div style={{width: "500px"}}>
+                    <div style={{height: "60px"}}>
+                        <h1>{this.state.name}</h1>
+                    </div>
+                    <div>
+                        <form>
+                            <input 
+                                type="text" 
+                                value={this.state.name} 
+                                name="name" 
+                                placeholder="Name" 
+                                onChange={this.handleChange} />
+                            <button onClick={this.handleClick}>Add</button>
+                        </form>
+                        <div style={{width: "300px"}}>
+                            <NameList names={this.state.names} />
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

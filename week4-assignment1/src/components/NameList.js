@@ -1,9 +1,16 @@
 import React from "react"
 
-function NameList() {
+function ListItem(props) {
+    return <li>{props.value}</li>
+}
 
+function NameList(props) {
+    const names = props.names
+    const listItems = names.map((name, index) => {
+        return <ListItem key={index} value={name} />
+    })
     return (
-        <div></div>
+        <ol>{listItems}</ol>
     )
 
 }
