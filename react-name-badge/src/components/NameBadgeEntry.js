@@ -45,26 +45,35 @@ class NameBadgeEntry extends React.Component {
     render() {
 
         return(
-            <div>
-                <form>
-                    <input 
-                        type="text" 
-                        value={this.state.firstName} 
-                        name="firstName" 
-                        placeholder="First Name" 
-                        onChange={this.handleChange} />
-                    <input 
-                        type="text" 
-                        value={this.state.lastName} 
-                        name="lastName" 
-                        placeholder="Last Name" 
-                        onChange={this.handleChange} />
-                    <button 
-                        disabled={!this.completed()} 
-                        onClick={this.handleClick}>Submit</button>
-                </form>
-                <div><Badges badges={this.state.badges} /></div>
+            <div style={{display: "flex", justifyContent: "center"}}>
+                <div style={{width: "500px", 
+                    border: "1px solid black", 
+                    borderRadius: "5px"}}>
+                    <form>
+                        <div style={{textAlign: "center", padding: "10px"}}>
+                            <input 
+                                type="text" 
+                                value={this.state.firstName} 
+                                name="firstName" 
+                                placeholder="First Name" 
+                                onChange={this.handleChange} />
+                            <input 
+                                type="text" 
+                                value={this.state.lastName} 
+                                name="lastName" 
+                                placeholder="Last Name" 
+                                onChange={this.handleChange} />
+                        </div>
+                        <div style={{textAlign: "center", padding: "10px"}}>
+                            <button 
+                                disabled={!this.completed()} 
+                                onClick={this.handleClick}>Submit</button>
+                        </div>
+                    </form>
+                    <div><Badges badges={this.state.badges} /></div>
+                </div>
             </div>
+            
         )
     }
 }
