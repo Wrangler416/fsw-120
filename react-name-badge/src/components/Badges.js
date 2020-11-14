@@ -6,9 +6,15 @@ function Badges(props) {
     const badges = props.badges.reverse().map((badge, index) => {
         return (
             <Badge 
-                key={index} 
+                key={index}
+                index={index}
                 firstName={badge.firstName}
-                lastName={badge.lastName} />
+                lastName={badge.lastName}
+                email={badge.email}
+                birthPlace={badge.birthPlace}
+                phone={badge.phone}
+                favFood={badge.favFood}
+                about={badge.about} />
         )
     })
 
