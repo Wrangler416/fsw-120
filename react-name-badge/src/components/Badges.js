@@ -3,7 +3,7 @@ import Badge from "../components/Badge"
 
 function Badges(props) {
 
-    const badges = props.badges.map((badge, index) => {
+    const badges = props.badges.reverse().map((badge, index) => {
         return (
             <Badge 
                 key={index} 

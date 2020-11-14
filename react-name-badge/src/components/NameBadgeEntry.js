@@ -59,6 +59,7 @@ class NameBadgeEntry extends React.Component {
                                 onChange={this.handleChange} />
                             <input 
                                 type="text" 
+                                className="right_column" 
                                 value={this.state.lastName} 
                                 name="lastName" 
                                 placeholder="Last Name" 
