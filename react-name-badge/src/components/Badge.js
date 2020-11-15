@@ -1,12 +1,9 @@
 import React from "react"
 
 function Badge(props) {
-
-    console.log(props.index)
-
     return (
-        <div style={{padding: "10px", border: "1px solid red"}}>
-            <div style={{width: "575px", 
+        <div style={{padding: "10px"}}>
+            <div style={{width: "600px", 
                 border: "1px solid black", 
                 borderRadius: "5px"}}>
                 <div style={{height: "15px", padding: "10px", borderRadius: "5px", 
@@ -23,13 +20,11 @@ function Badge(props) {
                     Email: {props.email}
                 </div>
                 <div>
-                    
+                    {props.about}
                 </div>
             </div>
         </div>
-        
     )
-
 }
 
 export default Badge

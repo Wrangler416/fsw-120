@@ -42,6 +42,26 @@ class NameBadgeEntry extends React.Component {
         this.setState({
             badges: [...this.state.badges, badgeEntry]
         })
+
+        this.setState({
+            firstName: '',
+            lastName: '',
+            email: '',
+            birthPlace: '',
+            phone: '',
+            favFood: '',
+            about: ''
+        })
+    }
+
+    validPhone(num) {
+        let validPhone = '([0-9]{10})'
+        if (num !== '') {
+            return num.match(validPhone) ? true : false
+        } else {
+            return true
+        }
+        
     }
 
     completed() {
@@ -63,13 +83,18 @@ class NameBadgeEntry extends React.Component {
 
     render() {
 
+        const phoneError = !this.validPhone(this.state.phone)
+
         return(
-            <div style={{display: "flex", justifyContent: "center", border: "1px solid red"}}>
-                <div style={{width: "600px", 
-                    border: "1px solid green", 
-                    borderRadius: "5px"}}>
-                    <form>
-                        <div style={{textAlign: "center", padding: "10px", border: "1px solid red"}}>
+            <div style={{display: "flex", justifyContent: "center"}}>
+                <div>
+                    <div style={{width: "600px", 
+                        border: "1px solid black",
+                        borderRadius: "5px",
+                        padding: "10px"}}>
+                        <h3>Name Badge Entry</h3>
+                        <form>
+                        <div style={{textAlign: "center", padding: "10px"}}>
                             <input 
                                 type="text" 
                                 value={this.state.firstName} 
@@ -84,7 +109,6 @@ class NameBadgeEntry extends React.Component {
                                 placeholder="Last Name" 
                                 onChange={this.handleChange} />
                         </div>
-
                         <div style={{textAlign: "center", padding: "10px"}}>
                             <input 
                                 type="email" 
@@ -100,14 +124,13 @@ class NameBadgeEntry extends React.Component {
                                 placeholder="Place of Birth" 
                                 onChange={this.handleChange} />
                         </div>
-
                         <div style={{textAlign: "center", padding: "10px"}}>
                             <input 
+                                className={phoneError ? "phone_error" : ''}
                                 type="tel" 
-                                pattern="[0-9]{10}" 
                                 value={this.state.phone} 
                                 name="phone" 
-                                placeholder="Phone" 
+                                placeholder="Phone (10 numbers only)" 
                                 onChange={this.handleChange} />
                             <input 
                                 type="text" 
@@ -117,9 +140,9 @@ class NameBadgeEntry extends React.Component {
                                 placeholder="Favorite Food" 
                                 onChange={this.handleChange} />
                         </div>
-
                         <div style={{textAlign: "center"}}>
                             <textarea 
+                                style={{resize: "none"}}
                                 rows={6} 
                                 cols={56} 
                                 value={this.state.about} 
@@ -127,17 +150,16 @@ class NameBadgeEntry extends React.Component {
                                 placeholder="Tell us about yourself" 
                                 onChange={this.handleChange} />
                         </div>
-
                         <div style={{textAlign: "center", padding: "10px"}}>
                             <button 
-                                disabled={!this.completed()} 
+                                disabled={!this.completed() || phoneError} 
                                 onClick={this.handleClick}>Submit</button>
                         </div>
                     </form>
-                    <div style={{border: "1px solid orange"}}><Badges badges={this.state.badges} /></div>
+                    </div>
+                    <div><Badges badges={this.state.badges} /></div>
                 </div>
             </div>
-            
         )
     }
 }
