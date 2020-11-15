@@ -7,7 +7,13 @@ class NameBadgeEntry extends React.Component {
         this.state = {
             badges: [],
             firstName: '',
-            lastName: ''
+            lastName: '',
+            email: '', 
+            birthPlace: '',
+            phone: '',
+            favFood: '',
+            about: ''
+
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -39,23 +45,31 @@ class NameBadgeEntry extends React.Component {
     }
 
     completed() {
-        if (this.state.firstName 
-            && this.state.lastName) {
+        /*
+        if (this.state.firstName.length >=3 
+            && this.state.lastName.length >=3 
+            && this.state.email.length >=3 
+            && this.state.birthPlace.length >=3 
+            && this.state.phone.length >=3 
+            && this.state.favFood.length >=3 
+            && this.state.about.length >=3) {
             return true
         } else {
             return false
         }
+        */
+       return true
     }
 
     render() {
 
         return(
-            <div style={{display: "flex", justifyContent: "center"}}>
+            <div style={{display: "flex", justifyContent: "center", border: "1px solid red"}}>
                 <div style={{width: "600px", 
-                    border: "1px solid black", 
+                    border: "1px solid green", 
                     borderRadius: "5px"}}>
                     <form>
-                        <div style={{textAlign: "center", padding: "10px"}}>
+                        <div style={{textAlign: "center", padding: "10px", border: "1px solid red"}}>
                             <input 
                                 type="text" 
                                 value={this.state.firstName} 
@@ -111,7 +125,7 @@ class NameBadgeEntry extends React.Component {
                                 value={this.state.about} 
                                 name="about" 
                                 placeholder="Tell us about yourself" 
-                                onChange={this.handleClick} />
+                                onChange={this.handleChange} />
                         </div>
 
                         <div style={{textAlign: "center", padding: "10px"}}>
@@ -120,7 +134,7 @@ class NameBadgeEntry extends React.Component {
                                 onClick={this.handleClick}>Submit</button>
                         </div>
                     </form>
-                    <div><Badges badges={this.state.badges} /></div>
+                    <div style={{border: "1px solid orange"}}><Badges badges={this.state.badges} /></div>
                 </div>
             </div>
             
