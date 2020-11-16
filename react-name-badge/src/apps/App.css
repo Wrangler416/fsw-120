@@ -11,6 +11,20 @@ button {
     margin-left: 60px;
 }
 
+span.left_column {
+    display: inline-flex;
+    margin-left: 50px;
+    width: 250px;
+}
+
+span.right_column {
+    margin-left: 30px;
+}
+
+span.full_column {
+    margin-left: 50px;
+}
+
 .phone_error {
     border: 2px solid red;
 }

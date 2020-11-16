@@ -8,19 +8,19 @@ function Badge(props) {
                 borderRadius: "5px"}}>
                 <div style={{height: "15px", padding: "10px", borderRadius: "5px", 
                     backgroundColor: props.index % 2 === 0 ? "salmon" : "lightgray"}}>Badge:</div>
-                <div>
-                    Name: {props.firstName} {props.lastName}
-                    Phone: {props.phone}
+                <div style={{padding: "10px"}}>
+                    <span className="left_column">Name: {props.firstName}{props.lastName}</span>
+                    <span className="right_column">Phone: {props.phone}</span> 
                 </div>
-                <div>
-                    Place of Birth: {props.birthPlace}
-                    Favorite food: {props.favFood}
+                <div style={{padding: "10px"}}>
+                    <span className="left_column">Place of Birth: {props.birthPlace}</span>
+                    <span className="right_column">Favorite food: {props.favFood}</span>
                 </div>
-                <div>
-                    Email: {props.email}
+                <div style={{padding: "10px"}}>
+                    <span className="left_column">Email: {props.email}</span>
                 </div>
-                <div>
-                    {props.about}
+                <div style={{padding: "10px"}}>
+                    <span className="full_column">{props.about}</span>
                 </div>
             </div>
         </div>

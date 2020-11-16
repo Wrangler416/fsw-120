@@ -65,7 +65,6 @@ class NameBadgeEntry extends React.Component {
     }
 
     completed() {
-        /*
         if (this.state.firstName.length >=3 
             && this.state.lastName.length >=3 
             && this.state.email.length >=3 
@@ -77,8 +76,6 @@ class NameBadgeEntry extends React.Component {
         } else {
             return false
         }
-        */
-       return true
     }
 
     render() {
