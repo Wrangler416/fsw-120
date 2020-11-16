@@ -1,5 +1,10 @@
 import React from "react"
 
+function formatPhone(num) {
+    return num.slice(0, 3) + '-' 
+        + num.slice(3, 6) + '-' + num.slice(6)
+}
+
 function Badge(props) {
     return (
         <div style={{padding: "10px"}}>
@@ -9,8 +14,8 @@ function Badge(props) {
                 <div style={{height: "15px", padding: "10px", borderRadius: "5px", 
                     backgroundColor: props.index % 2 === 0 ? "salmon" : "lightgray"}}>Badge:</div>
                 <div style={{padding: "10px"}}>
-                    <span className="left_column">Name: {props.firstName}{props.lastName}</span>
-                    <span className="right_column">Phone: {props.phone}</span> 
+                    <span className="left_column">Name: {props.firstName} {props.lastName}</span>
+                    <span className="right_column">Phone: {formatPhone(props.phone)}</span> 
                 </div>
                 <div style={{padding: "10px"}}>
                     <span className="left_column">Place of Birth: {props.birthPlace}</span>
