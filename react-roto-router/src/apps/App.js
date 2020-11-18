@@ -5,6 +5,7 @@ import About from "../pages/About"
 import Services from "../pages/Services"
 import NavBar from "../components/Navbar"
 import Footer from "../components/Footer"
+import "../apps/App.css"
 
 function App() {
     return (
