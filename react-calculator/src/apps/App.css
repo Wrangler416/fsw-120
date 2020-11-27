@@ -1,7 +1,7 @@
 .app {
     width: 500px;
     margin: auto;
-    border: 1px solid black;
+    border: 1px dashed black;
     padding: 20px;
 }
 .calculator {
@@ -13,8 +13,23 @@ button {
     width: 25%;
     height: 60px;
     font-size: 30px;
-  }
+}
 
 .clear {
     width: 200px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.result {
+    height: 60px;
+    width: 100%;
+  }
+  
+  .result p {
+    font-size: 40px;
+    margin: 5px;
+  
   }
