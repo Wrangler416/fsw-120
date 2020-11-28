@@ -6,7 +6,7 @@ function Keys(props) {
             <button name="7" onClick={props.handleClick}>7</button>
             <button name="8" onClick={props.handleClick}>8</button>
             <button name="9" onClick={props.handleClick}>9</button>
-            <button name="x" onClick={props.handleClick}>x</button>
+            <button name="*" onClick={props.handleClick}>x</button>
             <button name="4" onClick={props.handleClick}>4</button>
             <button name="5" onClick={props.handleClick}>5</button>
             <button name="6" onClick={props.handleClick}>6</button>

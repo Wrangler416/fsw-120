@@ -2,24 +2,25 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .app {
-    width: 500px;
-    margin: auto;
-    border: 1px solid black;
-    padding: 20px;
-    background-color: lightgray;
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+  background-color: lightgray;
+  border: 1px solid black
 }
 .calculator {
-    max-width: 400px;
-    margin: auto;
-    padding: 10px;
+  max-width: 400px;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid black;
 }
 
 button {
-    width: 25%;
-    height: 60px;
-    font-size: 30px;
-    background-color: black;
-    color: white;
+  width: 25%;
+  height: 60px;
+  font-size: 30px;
+  background-color: black;
+  color: white;
 }
 
 button:hover {
@@ -28,22 +29,29 @@ button:hover {
 }
 
 .clear, .backspace {
-    width: 200px;
-    font-size: 20px;
+  width: 200px;
+  font-size: 20px;
 }
 
 h1 {
   text-align: center;
 }
 
+.display {
+  text-align: right;
+  height: 20px;
+  padding: 5px;
+}
+
 .result {
-  border: 1px solid black;
-  height: 80px;
-  width: 380px;
+  text-align: right;
+  height: 90px;
+  width: auto;
+  border: 1px solid darkgray;
+  background-color: seashell;
 }
   
 .result p {
-  border: 1px solid red;
   font-size: 30px;
   margin: 5px;
   padding: 5px;

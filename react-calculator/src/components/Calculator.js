@@ -6,7 +6,8 @@ class Calculator extends Component {
     constructor() {
         super()
         this.state = {
-            entry: '',
+            equation: '',
+            display: '',
             result: ''
         }
 
@@ -17,9 +18,7 @@ class Calculator extends Component {
         try {
             this.setState({
                 // eslint-disable-next-line
-                //result: this.state.result + ' = ' + eval(this.state.entry)
-                // eslint-disable-next-line
-                result: eval(this.state.entry)
+                result: eval(this.state.equation)
             })
         } catch (error) {
             this.setState({
@@ -30,42 +29,38 @@ class Calculator extends Component {
     
     handleClick = (event) => {
         let key = event.target.name
-        if (key === 'x') {key = '*'}
+        let displayKey = event.target.name
+        if (displayKey === '*') {displayKey = 'x'}
 
         switch (key) {
             case '=':
                 this.calculate()
                 break;
             case 'clear':
-                this.setState({entry: ''})
-                this.setState({result: ''})
+                this.setState({equation: '', display: '', result: ''})
                 break;
             case 'backspace':
-                
                 this.setState(prevState => ({
-                    entry: prevState.entry.slice(0, -1),
-                    result: prevState.result.slice(0, -1)
+                    equation: prevState.equation.slice(0, -1),
+                    display: prevState.display.slice(0, -1)
                 }))
-                
                 break;
             default:
                 this.setState(prevState => ({
-                    result: prevState.result += event.target.name
+                    equation: prevState.equation += key
                 }))
                 this.setState(prevState => ({
-                    entry: prevState.entry += key
+                    display: prevState.display += displayKey
                 }))
         }
     }
 
     render() {
-
-        console.log('this.state.entry: ', this.state.entry)
-        console.log('this.state.result: ', this.state.result)
-
         return (
             <div className='calculator'>
-                <Display result={this.state.result} />
+                <Display 
+                    display={this.state.display} 
+                    result={this.state.result} />
                 <Keys handleClick={this.handleClick} />
             </div>
         )
