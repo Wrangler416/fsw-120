@@ -20,7 +20,7 @@ function Keys(props) {
             <button name="=" onClick={props.handleClick}>=</button>
             <button name="+" onClick={props.handleClick}>+</button>
             <button name="clear" onClick={props.handleClick} className='clear'>Clear</button>
-            <button name="backspace" onClick={props.handleClick} className='backspace'>Back</button>
+            <button name="backspace" onClick={props.handleClick} className='backspace'>Backspace</button>
         </div>
     )
 }

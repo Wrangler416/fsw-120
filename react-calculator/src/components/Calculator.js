@@ -14,17 +14,16 @@ class Calculator extends Component {
     }
 
     calculate = () => {
-
-        console.log('entry: ', this.state.entry)
-        
         try {
             this.setState({
+                // eslint-disable-next-line
+                //result: this.state.result + ' = ' + eval(this.state.entry)
                 // eslint-disable-next-line
                 result: eval(this.state.entry)
             })
         } catch (error) {
             this.setState({
-                result: 'error:' + error
+                result: 'Invalid Entry'
             })
         }
     }
@@ -42,10 +41,12 @@ class Calculator extends Component {
                 this.setState({result: ''})
                 break;
             case 'backspace':
+                
                 this.setState(prevState => ({
                     entry: prevState.entry.slice(0, -1),
                     result: prevState.result.slice(0, -1)
                 }))
+                
                 break;
             default:
                 this.setState(prevState => ({
