@@ -1,6 +1,7 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .app {
   width: 500px;
   margin: auto;
@@ -8,6 +9,7 @@ body {
   background-color: lightgray;
   border: 1px solid black
 }
+
 .calculator {
   max-width: 400px;
   margin: auto;
