@@ -14,10 +14,12 @@ class Twitter extends React.Component {
         this.entryInputChangeHandler = this.entryInputChangeHandler.bind(this)
         this.entrySaveClickHandler = this.entrySaveClickHandler.bind(this)
         this.editInputChangeHandler = this.editInputChangeHandler.bind(this)
+        this.editClickHandler = this.editClickHandler.bind(this)
+        this.deleteClickHandler = this.deleteClickHandler.bind(this)
     }
 
     componentDidMount() {
-        axios.get('./data.json')
+        axios.get('https://api.vschool.io/toddpolak-fsw-120/todo/')
             .then(response => {
                 let tweets = response.data
                 this.setState({tweets})
@@ -39,33 +41,26 @@ class Twitter extends React.Component {
 
     }
 
-    displayRenderer(tweet) {
-        if (this.state.id && this.state.id === tweet._id) {
-            return (
-                <div className='todo_edit'>
-                    <div>
-                        <input type='checkbox' />
-                        <input 
-                            type='text'
-                            id={tweet._id}
-                            name='editTitle'
-                            value={this.state.editTweet}
-                            onChange={this.editInputChangeHandler} />
-                    </div>
-                </div>
-            )
-        }
-        return (
-            <div className='todo_display'>
-                <div>
-                    {tweet.content}
-                </div>
-            </div>
-        )
+    editClickHandler(tweet) {
+        this.setState({
+            id: tweet._id,
+            editTweet: tweet.content,
+        });
     }
 
-    editRenderer(tweet) {
+    deleteClickHandler(tweet) {
 
+        console.log(tweet)
+
+        axios.delete('https://api.vschool.io/toddpolak-fsw-120/todo/' + tweet._id)
+            .then(async () => {
+                await axios.get('https://api.vschool.io/toddpolak-fsw-120/todo/')
+                    .then(response => {
+                        let tweets = response.data
+                        this.setState({tweets})
+                    })
+            })
+            .catch(error => console.log(error))
     }
 
     render() {
@@ -91,9 +86,11 @@ class Twitter extends React.Component {
                                 tweet={tweet}
                                 id={this.state.id}
                                 editTweet={this.state.editTweet}
-                                editInputChangeHandler={this.editInputChangeHandler} />
-                            
-                            {this.editRenderer(tweet)}
+                                editInputChangeHandler={this.editInputChangeHandler}
+                                editClickHandler={this.editClickHandler}
+                                deleteClickHandler={this.deleteClickHandler}
+                                
+                            />
                         </div>
                     )}
                 </div>

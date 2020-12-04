@@ -22,7 +22,7 @@ function displayRenderer(
     return (
         <div>
             <div>
-                {tweet.content}
+                {tweet.title}
             </div>
         </div>
     )
@@ -30,11 +30,12 @@ function displayRenderer(
 
 function editRenderer(
     tweet, 
-    id, 
-    editSaveClickHandler,
-    editCancelClickHandler,
+    id,
     editClickHandler,
-    deleteClickHandler) {
+    deleteClickHandler,
+    editSaveClickHandler,
+    editCancelClickHandler
+    ) {
     if (id && id === tweet._id) {
         return (
             <div>
@@ -68,7 +69,16 @@ function Tweets(props) {
                 props.tweet, 
                 props.id,
                 props.editTweet,
-                props.editInputChangeHandler)}
+                props.editInputChangeHandler
+            )}
+            {editRenderer(
+                props.tweet, 
+                props.id,
+                props.editClickHandler,
+                props.deleteClickHandler,
+                props.editSaveClickHandler,
+                props.editCancelClickHandler
+            )}
         </div>
     )
 }
