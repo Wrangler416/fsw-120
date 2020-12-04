@@ -1,0 +1,18 @@
+[
+    {
+      "_id": "1",
+      "content": "Tweet Number 1"
+    },
+    {
+        "_id": "2",
+        "content": "Tweet Number 2"
+    },
+    {
+        "_id": "3",
+        "content": "Merry Christmas !!!"
+    },
+    {
+        "_id": "4",
+        "content": "Happy New Year!"
+    }
+  ]
