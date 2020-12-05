@@ -1,0 +1,21 @@
+.app {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+input {
+    border: 0px none;
+    height: 25px;
+    font-size: large;
+}
+  
+.no-outline:focus {
+    border: 0px none;
+    outline: none;
+}
+
+button {
+    background-color: lightskyblue;
+}

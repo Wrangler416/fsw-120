@@ -6,6 +6,7 @@ class Twitter extends React.Component {
     constructor() {
         super()
         this.state = {
+            url: 'https://api.vschool.io/toddpolak-fsw-120/todo/',
             tweets: [],
             id: '',
             tweet: '',
@@ -19,7 +20,7 @@ class Twitter extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('https://api.vschool.io/toddpolak-fsw-120/todo/')
+        axios.get(this.state.url)
             .then(response => {
                 let tweets = response.data
                 this.setState({tweets})
@@ -49,12 +50,9 @@ class Twitter extends React.Component {
     }
 
     deleteClickHandler(tweet) {
-
-        console.log(tweet)
-
-        axios.delete('https://api.vschool.io/toddpolak-fsw-120/todo/' + tweet._id)
+        axios.delete(this.state.url + tweet._id)
             .then(async () => {
-                await axios.get('https://api.vschool.io/toddpolak-fsw-120/todo/')
+                await axios.get(this.state.url)
                     .then(response => {
                         let tweets = response.data
                         this.setState({tweets})
@@ -73,11 +71,10 @@ class Twitter extends React.Component {
                             value={this.state.tweet} 
                             name="tweet" 
                             placeholder="Whats happening?" 
+                            className='no-outline' 
                             onChange={this.entryInputChangeHandler} />  
+                        <button onClick={this.entrySaveClickHandler}>Tweet</button>
                     </form>
-                </div>
-                <div>
-                    <button onClick={this.entrySaveClickHandler}>Tweet</button>
                 </div>
                 <div>
                     {this.state.tweets.map((tweet, index) => 
