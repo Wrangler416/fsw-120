@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Input(props) {
+function Entry(props) {
     return (
         <div className='tweet-input'>
             <form>
@@ -16,4 +16,4 @@ function Input(props) {
     )
 }
 
-export default Input
+export default Entry

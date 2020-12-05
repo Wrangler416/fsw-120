@@ -23,6 +23,9 @@ function displayRenderer(
             <div>
                 {tweet.title}
             </div>
+            <div>
+                {tweet.description}
+            </div>
         </div>
     )
 }

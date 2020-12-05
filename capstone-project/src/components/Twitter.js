@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import Input from '../components/Input'
+import Entry from './Entry'
 import Tweets from '../components/Tweets'
 
 class Twitter extends React.Component {
@@ -10,6 +10,7 @@ class Twitter extends React.Component {
             url: 'https://api.vschool.io/toddpolak-fsw-120/todo/',
             tweets: [],
             id: '',
+            author: 'Todd Polak',
             tweet: '',
             editTweet: ''
         }
@@ -40,7 +41,8 @@ class Twitter extends React.Component {
         event.preventDefault()
 
         axios.post(this.state.url, {
-            title: this.state.tweet
+            title: this.state.author,
+            description: this.state.tweet
         })
         .then(async () => {
             await axios.get(this.state.url)
@@ -101,7 +103,7 @@ class Twitter extends React.Component {
     render() {
         return (
             <div>
-                <Input 
+                <Entry 
                     tweet={this.state.tweet}
                     entryInputChangeHandler={this.entryInputChangeHandler}
                     entrySaveClickHandler={this.entrySaveClickHandler}
