@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Input from '../components/Input'
 import Tweets from '../components/Tweets'
 
 class Twitter extends React.Component {
@@ -17,6 +18,7 @@ class Twitter extends React.Component {
         this.editInputChangeHandler = this.editInputChangeHandler.bind(this)
         this.editClickHandler = this.editClickHandler.bind(this)
         this.deleteClickHandler = this.deleteClickHandler.bind(this)
+        this.editSaveClickHandler = this.editSaveClickHandler.bind(this)
     }
 
     componentDidMount() {
@@ -35,17 +37,38 @@ class Twitter extends React.Component {
     }
 
     entrySaveClickHandler(event) {
+        event.preventDefault()
 
+        axios.post(this.state.url, {
+            title: this.state.tweet
+        })
+        .then(async () => {
+            await axios.get(this.state.url)
+                .then(response => {
+                    let tweets = response.data
+                    this.setState({tweets})
+                    this.setState({
+                        tweet: ''
+                    })
+                })
+        })
     }
 
     editInputChangeHandler(event) {
 
+        console.log(event.target.name)
+        console.log(event.target.value)
+
+        const {name, value} = event.target
+        this.setState({
+            [name]: value
+        })
     }
 
     editClickHandler(tweet) {
         this.setState({
             id: tweet._id,
-            editTweet: tweet.content,
+            editTweet: tweet.title
         });
     }
 
@@ -61,36 +84,46 @@ class Twitter extends React.Component {
             .catch(error => console.log(error))
     }
 
+    editSaveClickHandler(event) {
+        axios.put(this.state.url + event.target.id, {
+            title: this.state.editTweet
+        })
+        .then(async () => {
+            await axios.get(this.state.url)
+                .then(response => {
+                    let tweets = response.data
+                    this.setState({tweets})
+                    this.setState({id: ''})
+                })
+        })
+    }
+
+    editCancelClickHandler() {
+        this.setState({id: ''})
+    }
+
     render() {
         return (
             <div>
-                <div>
-                    <form>
-                        <input 
-                            type="text" 
-                            value={this.state.tweet} 
-                            name="tweet" 
-                            placeholder="Whats happening?" 
-                            className='no-outline' 
-                            onChange={this.entryInputChangeHandler} />  
-                        <button onClick={this.entrySaveClickHandler}>Tweet</button>
-                    </form>
-                </div>
-                <div>
-                    {this.state.tweets.map((tweet, index) => 
-                        <div key={index}>
-                            <Tweets 
-                                tweet={tweet}
-                                id={this.state.id}
-                                editTweet={this.state.editTweet}
-                                editInputChangeHandler={this.editInputChangeHandler}
-                                editClickHandler={this.editClickHandler}
-                                deleteClickHandler={this.deleteClickHandler}
-                                
-                            />
-                        </div>
-                    )}
-                </div>
+                <Input 
+                    tweet={this.state.tweet}
+                    entryInputChangeHandler={this.entryInputChangeHandler}
+                    entrySaveClickHandler={this.entrySaveClickHandler}
+                />
+                {this.state.tweets.map((tweet, index) => 
+                    <div key={index}>
+                        <Tweets 
+                            tweet={tweet}
+                            id={this.state.id}
+                            editTweet={this.state.editTweet}
+                            editInputChangeHandler={this.editInputChangeHandler}
+                            editClickHandler={this.editClickHandler}
+                            deleteClickHandler={this.deleteClickHandler}
+                            editSaveClickHandler={this.editSaveClickHandler}
+                            editCancelClickHandler={this.editClickHandler}
+                        />
+                    </div>
+                )}
             </div>
         )
     }

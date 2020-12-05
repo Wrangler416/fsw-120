@@ -9,10 +9,10 @@ function displayRenderer(
         return (
             <div>
                 <div>
-                    <input 
-                        type='text'
+                    <textarea 
+
                         id={tweet._id}
-                        name='editTitle'
+                        name='editTweet'
                         value={editTweet}
                         onChange={editInputChangeHandler} />
                 </div>
@@ -64,7 +64,7 @@ function editRenderer(
 
 function Tweets(props) {
     return (
-        <div>
+        <div className='tweet'>
             {displayRenderer(
                 props.tweet, 
                 props.id,
