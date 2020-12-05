@@ -12,6 +12,7 @@ class Twitter extends React.Component {
             id: '',
             author: 'Todd Polak @polaktodd',
             tweet: '',
+            tweetImg: '',
             editTweet: ''
         }
         this.entryInputChangeHandler = this.entryInputChangeHandler.bind(this)
@@ -42,7 +43,8 @@ class Twitter extends React.Component {
 
         axios.post(this.state.url, {
             title: this.state.author,
-            description: this.state.tweet
+            description: this.state.tweet,
+            imgUrl: this.state.tweetImg
         })
         .then(async () => {
             await axios.get(this.state.url)
@@ -50,7 +52,8 @@ class Twitter extends React.Component {
                     let tweets = response.data
                     this.setState({tweets})
                     this.setState({
-                        tweet: ''
+                        tweet: '',
+                        tweetImg: ''
                     })
                 })
         })
@@ -105,6 +108,7 @@ class Twitter extends React.Component {
             <div>
                 <Entry 
                     tweet={this.state.tweet}
+                    tweetImg={this.state.tweetImg}
                     entryInputChangeHandler={this.entryInputChangeHandler}
                     entrySaveClickHandler={this.entrySaveClickHandler}
                 />

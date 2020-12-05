@@ -77,9 +77,6 @@ function editRenderer(
 }
 
 function Tweets(props) {
-
-    console.log(props.tweet.imgUrl)
-
     return (
         <div className='tweet'>
             {displayRenderer(

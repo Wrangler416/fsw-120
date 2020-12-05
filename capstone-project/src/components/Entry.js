@@ -15,7 +15,7 @@ function Entry(props) {
                 <div>
                 <input 
                     type='text'
-                    value={props.imgUrl}
+                    value={props.tweetImg}
                     name='tweetImg'
                     placeholder='Image URL:'
                     className='img-input no-outline'
@@ -24,7 +24,6 @@ function Entry(props) {
                 <div className='tweet-submit'>
                     <button onClick={props.entrySaveClickHandler}>Tweet</button>
                 </div>
-
             </form>
         </div>
     )
