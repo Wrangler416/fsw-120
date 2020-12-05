@@ -10,7 +10,6 @@ function displayRenderer(
             <div>
                 <div>
                     <textarea 
-
                         id={tweet._id}
                         name='editTweet'
                         value={editTweet}
