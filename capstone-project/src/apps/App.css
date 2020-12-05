@@ -10,12 +10,12 @@ h1 {
     width: 500px;
     margin: auto;
     padding: 20px;
-    background-color: rgb(53, 53, 53);
+    background-color:#121e2a;
     border: 1px solid black;
 }
 
 textarea {
-    background-color: rgb(53, 53, 53);
+    background-color: #121e2a;
     color: white;
     resize: none;
     overflow: hidden;
@@ -24,6 +24,18 @@ textarea {
     width: 400px;
     font-size: large;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.img-input {
+    background-color: #121e2a;
+    color: white;
+    border: 0px none;
+    font-size: medium;
+}
+
+.tweet-submit {
+    width: 400px;
+    text-align: right;
 }
   
 .no-outline:focus {
@@ -42,4 +54,15 @@ button {
 }
 .tweet-input {
     padding: 20px;
+}
+
+.tweet-title {
+    color: lightskyblue;
+}
+
+.tweet-img {
+    border-radius: 25px;
+    padding: 10px;
+    width: 460px;
+    height: 300px;
 }

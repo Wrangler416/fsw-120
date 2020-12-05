@@ -10,7 +10,7 @@ class Twitter extends React.Component {
             url: 'https://api.vschool.io/toddpolak-fsw-120/todo/',
             tweets: [],
             id: '',
-            author: 'Todd Polak',
+            author: 'Todd Polak @polaktodd',
             tweet: '',
             editTweet: ''
         }
@@ -66,7 +66,7 @@ class Twitter extends React.Component {
     editClickHandler(tweet) {
         this.setState({
             id: tweet._id,
-            editTweet: tweet.title
+            editTweet: tweet.description
         });
     }
 

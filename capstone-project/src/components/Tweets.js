@@ -1,5 +1,16 @@
 import React from 'react'
 
+function tweetImg(url) {
+    if (url !== undefined) {
+        return (
+            <div>
+                <img className='tweet-img' src={url} alt='' />
+            </div>
+        )
+    }
+    return
+}
+
 function displayRenderer(
     tweet, 
     id, 
@@ -20,12 +31,13 @@ function displayRenderer(
     }
     return (
         <div>
-            <div>
+            <div className='tweet-title'>
                 {tweet.title}
             </div>
             <div>
                 {tweet.description}
             </div>
+            {tweetImg(tweet.imgUrl)}
         </div>
     )
 }
@@ -65,6 +77,9 @@ function editRenderer(
 }
 
 function Tweets(props) {
+
+    console.log(props.tweet.imgUrl)
+
     return (
         <div className='tweet'>
             {displayRenderer(
