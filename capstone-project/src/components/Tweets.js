@@ -1,7 +1,8 @@
 import React from 'react'
 
 function tweetImg(url) {
-    if (url !== undefined) {
+
+    if (url !== undefined && url !== '') {
         return (
             <div>
                 <img className='tweet-img' src={url} alt='' />
@@ -15,6 +16,7 @@ function displayRenderer(
     tweet, 
     id, 
     editTweet, 
+    editTweetImg,
     editInputChangeHandler) {
     if (id && id === tweet._id) {
         return (
@@ -24,7 +26,18 @@ function displayRenderer(
                         id={tweet._id}
                         name='editTweet'
                         value={editTweet}
+                        placeholder="Whats happening?" 
+                        className='no-outline'
                         onChange={editInputChangeHandler} />
+                </div>
+                <div>
+                <input 
+                    type='text'
+                    value={editTweetImg}
+                    name='editTweetImg'
+                    placeholder='Image URL:'
+                    className='img-input no-outline'
+                    onChange={editInputChangeHandler} />
                 </div>
             </div>
         )
@@ -83,6 +96,7 @@ function Tweets(props) {
                 props.tweet, 
                 props.id,
                 props.editTweet,
+                props.editTweetImg,
                 props.editInputChangeHandler
             )}
             {editRenderer(

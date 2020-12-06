@@ -13,7 +13,8 @@ class Twitter extends React.Component {
             author: 'Todd Polak @polaktodd',
             tweet: '',
             tweetImg: '',
-            editTweet: ''
+            editTweet: '',
+            editTweetImg: ''
         }
         this.entryInputChangeHandler = this.entryInputChangeHandler.bind(this)
         this.entrySaveClickHandler = this.entrySaveClickHandler.bind(this)
@@ -21,6 +22,7 @@ class Twitter extends React.Component {
         this.editClickHandler = this.editClickHandler.bind(this)
         this.deleteClickHandler = this.deleteClickHandler.bind(this)
         this.editSaveClickHandler = this.editSaveClickHandler.bind(this)
+        this.editCancelClickHandler = this.editCancelClickHandler.bind(this)
     }
 
     componentDidMount() {
@@ -41,11 +43,16 @@ class Twitter extends React.Component {
     entrySaveClickHandler(event) {
         event.preventDefault()
 
-        axios.post(this.state.url, {
+        let newTweet = {
             title: this.state.author,
-            description: this.state.tweet,
-            imgUrl: this.state.tweetImg
-        })
+            description: this.state.tweet
+        }
+
+        if (this.state.tweetImg !== '') {
+            newTweet.imgUrl = this.state.tweetImg
+        }
+
+        axios.post(this.state.url, newTweet)
         .then(async () => {
             await axios.get(this.state.url)
                 .then(response => {
@@ -69,7 +76,8 @@ class Twitter extends React.Component {
     editClickHandler(tweet) {
         this.setState({
             id: tweet._id,
-            editTweet: tweet.description
+            editTweet: tweet.description,
+            editTweetImg: tweet.imgUrl
         });
     }
 
@@ -87,7 +95,8 @@ class Twitter extends React.Component {
 
     editSaveClickHandler(event) {
         axios.put(this.state.url + event.target.id, {
-            title: this.state.editTweet
+            description: this.state.editTweet,
+            imgUrl: this.state.editTweetImg
         })
         .then(async () => {
             await axios.get(this.state.url)
@@ -118,6 +127,7 @@ class Twitter extends React.Component {
                             tweet={tweet}
                             id={this.state.id}
                             editTweet={this.state.editTweet}
+                            editTweetImg={this.state.editTweetImg}
                             editInputChangeHandler={this.editInputChangeHandler}
                             editClickHandler={this.editClickHandler}
                             deleteClickHandler={this.deleteClickHandler}

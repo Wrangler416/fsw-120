@@ -44,8 +44,16 @@ textarea {
 }
 
 button {
-    background-color: lightskyblue;
+    background-color: #1da1f2;
+    color: white;
+    width: 70px;
+    height: 30px;
 }
+
+button:hover {
+    background-color: lightgray;
+    color: black;
+  }
 
 .tweet {
     color: white;
