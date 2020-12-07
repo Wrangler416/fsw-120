@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Entry from './Entry'
-import Tweets from '../components/Tweets'
+import Tweet from './Tweet'
 
 class Twitter extends React.Component {
     constructor() {
@@ -29,8 +29,10 @@ class Twitter extends React.Component {
         axios.get(this.state.url)
             .then(response => {
                 let tweets = response.data
+                tweets.reverse()
                 this.setState({tweets})
             })
+            .catch(error => console.log(error))
     }
 
     entryInputChangeHandler(event) {
@@ -57,6 +59,7 @@ class Twitter extends React.Component {
             await axios.get(this.state.url)
                 .then(response => {
                     let tweets = response.data
+                    tweets.reverse()
                     this.setState({tweets})
                     this.setState({
                         tweet: '',
@@ -64,6 +67,7 @@ class Twitter extends React.Component {
                     })
                 })
         })
+        .catch(error => console.log(error))
     }
 
     editInputChangeHandler(event) {
@@ -87,6 +91,7 @@ class Twitter extends React.Component {
                 await axios.get(this.state.url)
                     .then(response => {
                         let tweets = response.data
+                        tweets.reverse()
                         this.setState({tweets})
                     })
             })
@@ -102,10 +107,12 @@ class Twitter extends React.Component {
             await axios.get(this.state.url)
                 .then(response => {
                     let tweets = response.data
+                    tweets.reverse()
                     this.setState({tweets})
                     this.setState({id: ''})
                 })
         })
+        .catch(error => console.log(error))
     }
 
     editCancelClickHandler() {
@@ -123,7 +130,7 @@ class Twitter extends React.Component {
                 />
                 {this.state.tweets.map((tweet, index) => 
                     <div key={index}>
-                        <Tweets 
+                        <Tweet 
                             tweet={tweet}
                             id={this.state.id}
                             editTweet={this.state.editTweet}

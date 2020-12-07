@@ -3,7 +3,11 @@ body {
 }
 
 h1 {
-    color: white;
+    color: whitesmoke;
+}
+
+.title {
+    text-align: center;
 }
 
 .app {
@@ -27,9 +31,6 @@ textarea {
 }
 
 .img-input {
-    background-color: #121e2a;
-    color: white;
-    border: 0px none;
     font-size: medium;
 }
 
@@ -44,8 +45,8 @@ textarea {
 }
 
 button {
-    background-color: #1da1f2;
-    color: white;
+    background-color: lightskyblue;
+    color: black;
     width: 70px;
     height: 30px;
 }
@@ -53,7 +54,7 @@ button {
 button:hover {
     background-color: lightgray;
     color: black;
-  }
+}
 
 .tweet {
     color: white;
@@ -72,5 +73,5 @@ button:hover {
     border-radius: 25px;
     padding: 10px;
     width: 460px;
-    height: 300px;
+    height: 260px;
 }

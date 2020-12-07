@@ -5,7 +5,9 @@ import Twitter from '../components/Twitter'
 function App() {
     return (
         <div className='app'>
-            <h1>Capstone Project</h1>
+            <div className='title'>
+                <h1>A Basic "Twitter" Interface</h1>
+            </div>
             <Twitter />
         </div>
     )

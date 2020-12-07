@@ -13,7 +13,7 @@ function Entry(props) {
                     onChange={props.entryInputChangeHandler} />
                 </div>
                 <div>
-                <input 
+                <textarea 
                     type='text'
                     value={props.tweetImg}
                     name='tweetImg'

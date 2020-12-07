@@ -31,12 +31,11 @@ function displayRenderer(
                         onChange={editInputChangeHandler} />
                 </div>
                 <div>
-                <input 
-                    type='text'
+                <textarea 
                     value={editTweetImg}
                     name='editTweetImg'
                     placeholder='Image URL:'
-                    className='img-input no-outline'
+                    className='no-outline'
                     onChange={editInputChangeHandler} />
                 </div>
             </div>
@@ -89,7 +88,7 @@ function editRenderer(
     )
 }
 
-function Tweets(props) {
+function Tweet(props) {
     return (
         <div className='tweet'>
             {displayRenderer(
@@ -111,4 +110,4 @@ function Tweets(props) {
     )
 }
 
-export default Tweets
+export default Tweet
