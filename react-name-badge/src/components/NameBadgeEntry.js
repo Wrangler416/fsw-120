@@ -154,7 +154,7 @@ class NameBadgeEntry extends React.Component {
                         </div>
                     </form>
                     </div>
-                    <div><Badges badges={this.state.badges} /></div>
+                    <div><Badges badges={this.state.badges.reverse()} /></div>
                 </div>
             </div>
         )
